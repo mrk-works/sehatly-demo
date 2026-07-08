@@ -24,22 +24,16 @@
       radial-gradient(1200px 600px at 15% -5%, #0b6675 0%, transparent 55%),
       radial-gradient(1000px 700px at 100% 110%, #0a4a56 0%, transparent 55%),
       linear-gradient(160deg,#0a4753 0%,#063a45 100%);
-    color:var(--ink);
-    display:flex; align-items:center; justify-content:center;
+    color:var(--ink); display:flex; align-items:center; justify-content:center;
     overflow:hidden; min-height:100dvh;
   }
   .stage{ display:flex; flex-direction:column; align-items:center; gap:14px; }
-  .caption{ color:#bfe0e2; font-size:13px; font-weight:500; letter-spacing:.2px; opacity:.9; display:flex; align-items:center; gap:8px;}
-  .caption .dot{ width:7px; height:7px; border-radius:50%; background:#28e0b8; box-shadow:0 0 0 0 rgba(40,224,184,.6); animation:live 1.8s infinite;}
+  .caption{ color:#bfe0e2; font-size:13px; font-weight:500; opacity:.9; display:flex; align-items:center; gap:8px;}
+  .caption .dot{ width:7px; height:7px; border-radius:50%; background:#28e0b8; animation:live 1.8s infinite;}
   @keyframes live{0%{box-shadow:0 0 0 0 rgba(40,224,184,.55)}70%{box-shadow:0 0 0 8px rgba(40,224,184,0)}100%{box-shadow:0 0 0 0 rgba(40,224,184,0)}}
 
-  /* ---- phone ---- */
-  .phone{
-    width:390px; height:844px; background:#04333c; border-radius:52px;
-    padding:13px; box-shadow:var(--shadow-lg); position:relative;
-    transform-origin:center center; animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
-  }
-  @keyframes rise{from{opacity:0; transform:translateY(26px) scale(var(--scale,1))}to{opacity:1}}
+  .phone{ width:390px; height:844px; background:#04333c; border-radius:52px; padding:13px; box-shadow:var(--shadow-lg); position:relative; transform-origin:center center; animation:rise .7s cubic-bezier(.2,.8,.2,1) both;}
+  @keyframes rise{from{opacity:0}to{opacity:1}}
   .screenwrap{ position:relative; width:100%; height:100%; background:var(--bg); border-radius:40px; overflow:hidden;}
   .notch{ position:absolute; top:12px; left:50%; transform:translateX(-50%); width:118px; height:32px; background:#04333c; border-radius:20px; z-index:60;}
   .statusbar{ position:absolute; top:0; left:0; right:0; height:52px; display:flex; align-items:center; justify-content:space-between; padding:0 26px; font-size:14px; font-weight:700; color:var(--ink); z-index:55;}
@@ -51,38 +45,33 @@
   .batt::after{content:""; position:absolute; right:-3px; top:3px; width:2px; height:5px; background:var(--ink); border-radius:0 1px 1px 0;}
   .batt i{position:absolute; inset:1.5px; width:70%; background:var(--ink); border-radius:1px;}
 
-  /* ---- screens ---- */
   .screen{ position:absolute; inset:0; padding:62px 22px 26px; display:flex; flex-direction:column; opacity:0; transform:translateX(24px); pointer-events:none; transition:opacity .34s ease, transform .34s cubic-bezier(.2,.8,.2,1); overflow-y:auto; z-index:1;}
   .screen.active{ opacity:1; transform:translateX(0); pointer-events:auto; z-index:2;}
   .screen::-webkit-scrollbar{display:none;}
-
   [dir="rtl"] .screen{ transform:translateX(-24px);}
   [dir="rtl"] .screen.active{ transform:translateX(0);}
 
-  /* header */
   .apphead{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;}
   .brand{ display:flex; align-items:center; gap:9px;}
   .brand .logo{ width:34px; height:34px; border-radius:10px; background:linear-gradient(150deg,var(--teal),var(--teal-600)); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(3,125,140,.35);}
   .brand .name{ font-weight:800; font-size:19px; letter-spacing:-.4px; color:var(--ink);}
   .brand .name b{ color:var(--teal);}
   .hbtns{ display:flex; gap:8px;}
-  .iconbtn{ width:38px; height:38px; border-radius:12px; border:1px solid var(--line); background:var(--surface); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform .12s, background .2s; color:var(--teal);}
+  .iconbtn{ width:38px; height:38px; border-radius:12px; border:1px solid var(--line); background:var(--surface); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform .12s, background .2s; color:var(--teal); font-size:16px;}
   .iconbtn:active{ transform:scale(.9);}
   .iconbtn.speak.on{ background:var(--teal); color:#fff; border-color:var(--teal);}
 
   h1.big{ font-size:27px; line-height:1.18; font-weight:800; letter-spacing:-.6px; color:var(--ink); margin-bottom:8px;}
   p.sub{ font-size:15px; color:var(--muted); line-height:1.5; font-weight:500;}
   .eyebrow{ font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); margin-bottom:12px;}
-
   .grow{flex:1;}
   .btn{ width:100%; border:none; border-radius:17px; padding:17px; font-family:inherit; font-size:16.5px; font-weight:700; cursor:pointer; transition:transform .12s, box-shadow .2s, background .2s; display:flex; align-items:center; justify-content:center; gap:9px;}
   .btn:active{ transform:scale(.975);}
   .btn.primary{ background:var(--teal); color:#fff; box-shadow:0 10px 22px rgba(3,125,140,.30);}
   .btn.primary:active{ background:var(--teal-600);}
-  .btn.amber{ background:var(--amber); color:#4a2c0c; box-shadow:0 10px 22px rgba(221,134,54,.28);}
   .btn.ghost{ background:transparent; color:var(--teal); font-weight:700; box-shadow:none;}
 
-  /* language screen */
+  /* language */
   .lang-hero{ display:flex; flex-direction:column; align-items:center; text-align:center; margin:16px 0 26px;}
   .lang-hero .logo-xl{ width:78px; height:78px; border-radius:22px; background:linear-gradient(150deg,var(--teal),var(--teal-600)); display:flex; align-items:center; justify-content:center; box-shadow:0 16px 34px rgba(3,125,140,.4); margin-bottom:16px;}
   .lang-hero .name{ font-size:30px; font-weight:800; letter-spacing:-.8px; color:var(--ink);}
@@ -90,34 +79,57 @@
   .lang-hero .tag{ font-size:14.5px; color:var(--muted); font-weight:500; margin-top:4px;}
   .lang-title{ font-size:14px; font-weight:700; color:var(--ink); text-align:center; margin-bottom:14px; opacity:.75;}
   .langlist{ display:flex; flex-direction:column; gap:11px;}
-  .langbtn{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; background:var(--surface); border:1.5px solid var(--line); border-radius:16px; cursor:pointer; transition:transform .12s, border-color .2s, box-shadow .2s;}
+  .langbtn{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; background:var(--surface); border:1.5px solid var(--line); border-radius:16px; cursor:pointer; transition:transform .12s, border-color .2s;}
   .langbtn:active{ transform:scale(.98);}
   .langbtn .native{ font-size:18px; font-weight:700; color:var(--ink);}
   .langbtn .en{ font-size:12.5px; color:var(--muted); font-weight:600; margin-top:1px;}
   .langbtn .arrow{ color:var(--teal); opacity:.8;}
+
+  /* login */
+  .eidcard{ border-radius:16px; padding:16px; background:linear-gradient(135deg,#f4f8f8,#e6f0f0); border:1px solid #d8e6e6; display:flex; gap:14px; align-items:center; margin:8px 0 22px; box-shadow:var(--shadow);}
+  .eidcard .photo{ width:52px; height:62px; border-radius:8px; background:linear-gradient(160deg,#cfe0e2,#aec6c8); display:flex; align-items:center; justify-content:center; color:#6f8d90; flex-shrink:0;}
+  .eidcard .t{font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); font-weight:800;}
+  .eidcard .flag{font-size:11px; color:var(--muted); font-weight:600; margin-top:2px;}
+  .eidcard .n{font-size:12.5px; color:var(--ink); font-weight:700; letter-spacing:.14em; margin-top:9px;}
+  .fieldlbl{ font-size:12.5px; font-weight:700; color:var(--muted); margin-bottom:7px; display:block;}
+  .field{ width:100%; border:1.5px solid var(--line); border-radius:14px; padding:15px 16px; font-family:inherit; font-size:16px; font-weight:700; color:var(--ink); background:var(--surface); letter-spacing:.06em;}
+  .field:focus{ outline:none; border-color:var(--teal);}
+  .securenote{ display:flex; align-items:center; gap:7px; color:var(--muted); font-size:12.5px; font-weight:500; margin-top:13px; justify-content:center;}
+
+  /* personalize */
+  .needcard{ display:flex; align-items:center; gap:13px; padding:16px; background:var(--surface); border:1.5px solid var(--line); border-radius:16px; cursor:pointer; transition:transform .12s, border-color .2s, box-shadow .2s; margin-bottom:10px;}
+  .needcard:active{ transform:scale(.98); box-shadow:var(--shadow);}
+  .needcard .emo{ width:44px; height:44px; border-radius:12px; background:var(--teal-050); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;}
+  .needcard .lbl{ font-weight:700; font-size:15px; color:var(--ink); flex:1;}
+  .needcard .arrow{ color:var(--teal); opacity:.7;}
+  .needcard.healthy{ background:linear-gradient(135deg,var(--teal),var(--teal-600)); border:none; box-shadow:0 12px 24px rgba(3,125,140,.28);}
+  .needcard.healthy .emo{ background:rgba(255,255,255,.2);}
+  .needcard.healthy .lbl{ color:#fff;}
+  .needcard.healthy .arrow{ color:#bff0e6; opacity:1;}
+  .needdiv{ display:flex; align-items:center; gap:12px; margin:6px 0 14px; color:var(--muted); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;}
+  .needdiv::before,.needdiv::after{ content:""; flex:1; height:1px; background:var(--line);}
 
   /* scan */
   .scanframe{ position:relative; width:100%; aspect-ratio:1.58; border-radius:22px; margin:8px 0 20px; background:linear-gradient(135deg,#eaf4f4,#ddeeef); border:2px dashed #9fc7cc; display:flex; align-items:center; justify-content:center; overflow:hidden;}
   .idcard{ width:78%; aspect-ratio:1.585; border-radius:15px; background:linear-gradient(145deg,var(--teal) 0%,#02616f 60%,#014c58 100%); box-shadow:0 14px 30px rgba(2,80,90,.4); transform:rotate(-4deg); padding:15px 16px; color:#eafafa; position:relative; transition:transform .5s;}
   .idcard .chip{ width:34px; height:26px; border-radius:6px; background:linear-gradient(135deg,#ffe08a,#e9b949); margin-bottom:14px;}
   .idcard .row1{ font-size:9px; letter-spacing:.16em; opacity:.75; text-transform:uppercase; font-weight:600;}
-  .idcard .plan{ font-size:14px; font-weight:800; letter-spacing:.2px; margin-top:2px;}
+  .idcard .plan{ font-size:14px; font-weight:800; margin-top:2px;}
   .idcard .num{ font-size:11.5px; letter-spacing:.22em; margin-top:14px; font-weight:600; opacity:.92;}
-  .idcard .prov{ position:absolute; top:14px; right:15px; font-size:12px; font-weight:800; letter-spacing:.5px; opacity:.95;}
-  .scanline{ position:absolute; left:8%; right:8%; height:3px; background:linear-gradient(90deg,transparent, #37e6cf, transparent); box-shadow:0 0 14px 3px rgba(55,230,207,.6); border-radius:3px; top:20%; opacity:0;}
+  .idcard .prov{ position:absolute; top:14px; right:15px; font-size:12px; font-weight:800; opacity:.95;}
+  .scanline{ position:absolute; left:8%; right:8%; height:3px; background:linear-gradient(90deg,transparent,#37e6cf,transparent); box-shadow:0 0 14px 3px rgba(55,230,207,.6); border-radius:3px; top:20%; opacity:0;}
   .scanning .scanline{ opacity:1; animation:scan 1.15s ease-in-out infinite;}
   .scanning .idcard{ transform:rotate(0deg) scale(1.02);}
   @keyframes scan{0%{top:16%}50%{top:82%}100%{top:16%}}
   .scanstatus{ display:none; align-items:center; justify-content:center; gap:10px; margin:-6px 0 20px; color:var(--teal); font-weight:700; font-size:15px;}
-  .scanning ~ .scanstatus, .scanstatus.show{ display:flex;}
+  .scanstatus.show{ display:flex;}
   .spin{ width:19px; height:19px; border:2.6px solid var(--teal-050); border-top-color:var(--teal); border-radius:50%; animation:sp .8s linear infinite;}
   @keyframes sp{to{transform:rotate(360deg)}}
 
-  /* found card */
   .successcheck{ width:66px; height:66px; border-radius:50%; background:var(--sea-050); display:flex; align-items:center; justify-content:center; margin:6px auto 14px; animation:pop .5s cubic-bezier(.2,1.3,.4,1) both;}
   @keyframes pop{from{transform:scale(.4); opacity:0}to{transform:scale(1); opacity:1}}
   .resultcard{ border-radius:20px; background:linear-gradient(145deg,var(--teal) 0%,#02616f 62%,#014c58 100%); color:#eafafa; padding:20px; box-shadow:var(--shadow); position:relative; margin-bottom:16px;}
-  .resultcard .prov{ position:absolute; top:18px; right:20px; font-weight:800; letter-spacing:.5px; font-size:14px;}
+  .resultcard .prov{ position:absolute; top:18px; right:20px; font-weight:800; font-size:14px;}
   [dir="rtl"] .resultcard .prov{ right:auto; left:20px;}
   .resultcard .chip{ width:36px; height:27px; border-radius:6px; background:linear-gradient(135deg,#ffe08a,#e9b949); margin-bottom:16px;}
   .resultcard .lbl{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.72; font-weight:600;}
@@ -126,43 +138,49 @@
   .infoline{ display:flex; align-items:center; gap:10px; background:var(--sea-050); border-radius:14px; padding:14px 15px; color:#0a6b60; font-weight:600; font-size:14px; line-height:1.4;}
   .infoline svg{flex-shrink:0;}
 
-  /* map + clinics */
-  .mapband{ position:relative; height:118px; border-radius:18px; overflow:hidden; margin-bottom:16px; background:
+  /* profile banner */
+  .pbanner{ display:none; align-items:center; gap:10px; background:var(--amber-050); border:1.5px solid #f3d3af; border-radius:14px; padding:12px 14px; margin-bottom:14px; color:#7a4f18; font-weight:700; font-size:13.5px; line-height:1.35;}
+  .pbanner .pi{ width:30px; height:30px; border-radius:9px; background:var(--amber); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:15px;}
+
+  .mapband{ position:relative; height:112px; border-radius:18px; overflow:hidden; margin-bottom:16px; background:
       linear-gradient(0deg,rgba(3,125,140,.05),rgba(3,125,140,.05)),
       repeating-linear-gradient(0deg,#e3efef 0 22px,#edf5f5 22px 44px),
-      repeating-linear-gradient(90deg,#e3efef 0 22px,#edf5f5 22px 44px);
-      border:1px solid var(--line);}
+      repeating-linear-gradient(90deg,#e3efef 0 22px,#edf5f5 22px 44px); border:1px solid var(--line);}
   .mapband .road{ position:absolute; background:#d4e6e6;}
   .pin{ position:absolute; width:26px; height:26px; transform:translate(-50%,-100%);}
   .pin svg{filter:drop-shadow(0 3px 4px rgba(2,80,90,.35));}
   .youdot{ position:absolute; width:16px; height:16px; border-radius:50%; background:#2b7fff; border:3px solid #fff; box-shadow:0 0 0 4px rgba(43,127,255,.25); transform:translate(-50%,-50%);}
-  .clinic{ display:flex; gap:13px; padding:15px; background:var(--surface); border:1px solid var(--line); border-radius:17px; margin-bottom:11px; cursor:pointer; transition:transform .12s, box-shadow .2s, border-color .2s; align-items:flex-start;}
+  .clinic{ display:flex; gap:13px; padding:15px; background:var(--surface); border:1px solid var(--line); border-radius:17px; margin-bottom:11px; cursor:pointer; transition:transform .12s, box-shadow .2s; align-items:flex-start;}
   .clinic:active{ transform:scale(.985); box-shadow:var(--shadow);}
   .clinic .ic{ width:46px; height:46px; border-radius:13px; background:var(--teal-050); display:flex; align-items:center; justify-content:center; color:var(--teal); flex-shrink:0;}
   .clinic .body{flex:1; min-width:0;}
-  .clinic .nm{ font-weight:800; font-size:15.5px; color:var(--ink); letter-spacing:-.2px;}
+  .clinic .nm{ font-weight:800; font-size:15.5px; color:var(--ink);}
   .clinic .spec{ font-size:12.5px; color:var(--muted); font-weight:500; margin-top:1px;}
   .chiprow{ display:flex; flex-wrap:wrap; gap:6px; margin-top:9px;}
   .tag{ font-size:11px; font-weight:700; padding:4px 9px; border-radius:20px; display:inline-flex; align-items:center; gap:4px;}
   .tag.ok{ background:var(--sea-050); color:#0a7d6f;}
   .tag.lang{ background:#eef2f4; color:#5a7079;}
   .tag.dist{ background:var(--teal-050); color:var(--teal-600);}
+  .tag.acc{ background:#eef0fb; color:#4b57b0;}
 
-  /* coverage */
+  .assist{ width:100%; background:var(--amber-050); border:1.5px solid #f3d3af; border-radius:17px; padding:16px; display:flex; align-items:center; gap:13px; text-align:start; margin-bottom:14px;}
+  .assist .ac{ width:46px; height:46px; border-radius:13px; background:var(--amber); display:flex; align-items:center; justify-content:center; color:#4a2c0c; flex-shrink:0;}
+  .assist .at{ font-weight:800; font-size:14.5px; color:#5a370f;}
+  .assist .ah{ font-size:12.5px; color:#8a6636; font-weight:500; margin-top:2px; line-height:1.4;}
+  #transportCard{ display:none; }
+
   .covhead{ background:linear-gradient(135deg,var(--teal-050),#ddeeef); border-radius:18px; padding:18px; margin-bottom:16px;}
   .covhead .cname{ font-weight:800; font-size:17px; color:var(--ink);}
-  .covhead .cmeta{ font-size:13px; color:var(--muted); font-weight:600; margin-top:3px; display:flex; align-items:center; gap:6px;}
-  .bigcover{ font-size:20px; font-weight:800; color:var(--ink); line-height:1.3; margin:4px 0 18px; letter-spacing:-.3px;}
+  .covhead .cmeta{ font-size:13px; color:var(--muted); font-weight:600; margin-top:3px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .bigcover{ font-size:20px; font-weight:800; color:var(--ink); line-height:1.3; margin:4px 0 18px;}
   .bigcover b{ color:var(--teal);}
   .covrow{ display:flex; align-items:center; justify-content:space-between; padding:15px 4px; border-bottom:1px solid var(--line);}
   .covrow:last-child{border-bottom:none;}
   .covrow .l{ display:flex; align-items:center; gap:12px; font-weight:600; font-size:14.5px; color:var(--ink);}
-  .covrow .l .d{ width:34px; height:34px; border-radius:10px; background:var(--teal-050); display:flex; align-items:center; justify-content:center; color:var(--teal);}
+  .covrow .l .d{ width:34px; height:34px; border-radius:10px; background:var(--teal-050); display:flex; align-items:center; justify-content:center;}
   .covrow .v{ font-weight:800; font-size:14.5px;}
   .covrow .v.free{ color:var(--sea);}
-  .covrow .v.pay{ color:var(--ink);}
 
-  /* time picker */
   .daytabs{ display:flex; gap:10px; margin:6px 0 18px;}
   .daytab{ flex:1; padding:13px; text-align:center; border-radius:14px; border:1.5px solid var(--line); background:var(--surface); font-weight:700; font-size:14.5px; color:var(--muted); cursor:pointer; transition:.15s;}
   .daytab.sel{ background:var(--teal-050); border-color:var(--teal); color:var(--teal-600);}
@@ -170,19 +188,27 @@
   .slot{ padding:16px; text-align:center; border-radius:14px; border:1.5px solid var(--line); background:var(--surface); font-weight:700; font-size:15px; color:var(--ink); cursor:pointer; transition:.15s;}
   .slot.sel{ background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 8px 18px rgba(3,125,140,.28);}
 
-  /* confirmation */
   .bookedwrap{ display:flex; flex-direction:column; align-items:center; text-align:center;}
   .bigcheck{ width:96px; height:96px; border-radius:50%; background:var(--sea); display:flex; align-items:center; justify-content:center; margin:18px auto 18px; box-shadow:0 16px 34px rgba(15,181,164,.4); animation:pop .55s cubic-bezier(.2,1.4,.4,1) both;}
-  .summary{ width:100%; background:var(--surface); border:1px solid var(--line); border-radius:17px; padding:17px; margin:20px 0 16px; text-align:start;}
+  .summary{ width:100%; background:var(--surface); border:1px solid var(--line); border-radius:17px; padding:17px; margin:20px 0 14px; text-align:start;}
   .summary .sr{ display:flex; align-items:center; gap:12px; padding:9px 0;}
   .summary .sr .k{ color:var(--muted); font-size:13px; font-weight:600; min-width:74px;}
   .summary .sr .val{ color:var(--ink); font-weight:700; font-size:14.5px;}
-  .assist{ width:100%; background:var(--amber-050); border:1.5px solid #f3d3af; border-radius:17px; padding:16px; display:flex; align-items:center; gap:13px; text-align:start; margin-bottom:16px;}
-  .assist .ac{ width:46px; height:46px; border-radius:13px; background:var(--amber); display:flex; align-items:center; justify-content:center; color:#4a2c0c; flex-shrink:0;}
-  .assist .at{ font-weight:800; font-size:14.5px; color:#5a370f;}
-  .assist .ah{ font-size:12.5px; color:#8a6636; font-weight:500; margin-top:2px; line-height:1.4;}
+  #reminderRow{ display:none; width:100%; align-items:center; gap:12px; background:var(--teal-050); border:1.5px solid #c9e4e6; border-radius:15px; padding:14px; margin-bottom:14px; text-align:start;}
+  #reminderRow .rc{ width:42px; height:42px; border-radius:12px; background:var(--teal); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:19px;}
+  #reminderRow .rt{ font-weight:800; font-size:14px; color:var(--teal-600); line-height:1.3;}
 
-  /* language bottom sheet */
+  /* large-text mode (older adults) */
+  #wrap.large p.sub{font-size:16.5px}
+  #wrap.large .needcard .lbl{font-size:16.5px}
+  #wrap.large .clinic .nm{font-size:17px}
+  #wrap.large .clinic .spec{font-size:13.5px}
+  #wrap.large .covrow .l,#wrap.large .covrow .v{font-size:16.5px}
+  #wrap.large .btn{font-size:18px}
+  #wrap.large .bigcover{font-size:22px}
+  #wrap.large h1.big{font-size:29px}
+  #wrap.large .tag{font-size:12px}
+
   .sheet-scrim{ position:absolute; inset:0; background:rgba(8,47,56,.44); opacity:0; pointer-events:none; transition:opacity .28s; z-index:70; border-radius:40px;}
   .sheet-scrim.show{ opacity:1; pointer-events:auto;}
   .sheet{ position:absolute; left:0; right:0; bottom:0; background:var(--surface); border-radius:26px 26px 0 0; padding:12px 20px 26px; transform:translateY(100%); transition:transform .32s cubic-bezier(.2,.8,.2,1); z-index:71;}
@@ -190,7 +216,6 @@
   .sheet .grab{ width:42px; height:5px; border-radius:3px; background:#d3e0e0; margin:2px auto 14px;}
   .sheet h3{ font-size:16px; font-weight:800; color:var(--ink); margin-bottom:12px; text-align:center;}
   .sheet .langbtn{ margin-bottom:9px;}
-
   @media (max-height:860px){ .caption{display:none;} }
 </style>
 </head>
@@ -202,18 +227,13 @@
     <div class="screenwrap" id="wrap" dir="ltr">
       <div class="statusbar">
         <span id="clock">9:41</span>
-        <span class="sig">
-          <span class="bars"><i></i><i></i><i></i><i></i></span>
-          <span class="batt"><i></i></span>
-        </span>
+        <span class="sig"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="batt"><i></i></span></span>
       </div>
 
-      <!-- SCREEN: LANGUAGE -->
+      <!-- LANGUAGE -->
       <section class="screen active" id="s-lang">
         <div class="lang-hero">
-          <div class="logo-xl">
-            <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><rect x="7" y="12" width="28" height="19" rx="4" stroke="#fff" stroke-width="2.4"/><path d="M7 26h6l2.5-6 3.5 10 3-7 2 3h6" stroke="#8CF0DE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="logo-xl"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><rect x="7" y="12" width="28" height="19" rx="4" stroke="#fff" stroke-width="2.4"/><path d="M7 26h6l2.5-6 3.5 10 3-7 2 3h6" stroke="#8CF0DE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="name">Sehat<b>ly</b></div>
           <div class="tag">Your health card, made simple</div>
         </div>
@@ -227,33 +247,66 @@
         </div>
       </section>
 
-      <!-- SCREEN: SCAN -->
+      <!-- LOGIN -->
+      <section class="screen" id="s-login">
+        <div class="apphead">
+          <div class="iconbtn" onclick="go('lang')">←</div>
+          <div class="hbtns"><div class="iconbtn speak" onclick="listen(this,'login')">🔊</div><div class="iconbtn" onclick="openSheet()">🌐</div></div>
+        </div>
+        <h1 class="big" data-i18n="login_title">Sign in with Emirates ID</h1>
+        <p class="sub" data-i18n="login_sub">We'll find your insurance and set up your care</p>
+        <div class="eidcard">
+          <div class="photo"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#6f8d90"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" fill="#6f8d90"/></svg></div>
+          <div>
+            <div class="t">Emirates ID</div>
+            <div class="flag">🇦🇪 United Arab Emirates</div>
+            <div class="n">784-1990-1234567-1</div>
+          </div>
+        </div>
+        <label class="fieldlbl" data-i18n="eid_label">Emirates ID number</label>
+        <input class="field" id="eidInput" value="784-1990-1234567-1" inputmode="numeric" />
+        <div class="securenote"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" fill="#5E7A82"/><path d="M8 11V8a4 4 0 018 0v3" stroke="#5E7A82" stroke-width="2"/></svg><span data-i18n="login_secure">Your details are private and secure</span></div>
+        <div class="grow"></div>
+        <button class="btn primary" onclick="go('personalize')"><span data-i18n="login_btn">Sign in</span><span>→</span></button>
+      </section>
+
+      <!-- PERSONALIZE -->
+      <section class="screen" id="s-personalize">
+        <div class="apphead">
+          <div class="iconbtn" onclick="go('login')">←</div>
+          <div class="hbtns"><div class="iconbtn speak" onclick="listen(this,'personalize')">🔊</div><div class="iconbtn" onclick="openSheet()">🌐</div></div>
+        </div>
+        <h1 class="big" data-i18n="personalize_title">How can we help you today?</h1>
+        <p class="sub" style="margin-bottom:18px;" data-i18n="personalize_sub">Pick what fits you, so we can make it easier</p>
+        <div class="needcard healthy" onclick="choose('healthy')"><div class="emo">💚</div><div class="lbl" data-i18n="p_healthy">I'm healthy — just need a clinic</div><span class="arrow">→</span></div>
+        <div class="needdiv" data-i18n="need_or">or tell us what you need</div>
+        <div class="needcard" onclick="choose('disability')"><div class="emo">♿</div><div class="lbl" data-i18n="p_disability">Person with a disability</div><span class="arrow">→</span></div>
+        <div class="needcard" onclick="choose('older')"><div class="emo">👵</div><div class="lbl" data-i18n="p_older">Older adult</div><span class="arrow">→</span></div>
+        <div class="needcard" onclick="choose('parent')"><div class="emo">👨‍👩‍👧</div><div class="lbl" data-i18n="p_parent">Parent with children</div><span class="arrow">→</span></div>
+        <div class="needcard" onclick="choose('chronic')"><div class="emo">🩹</div><div class="lbl" data-i18n="p_chronic">Living with a long-term illness</div><span class="arrow">→</span></div>
+        <div class="needcard" onclick="choose('pregnant')"><div class="emo">🤰</div><div class="lbl" data-i18n="p_pregnant">Pregnant</div><span class="arrow">→</span></div>
+        <div class="needcard" onclick="choose('tourist')"><div class="emo">🧳</div><div class="lbl" data-i18n="p_tourist">Tourist or visitor</div><span class="arrow">→</span></div>
+        <div class="needcard" onclick="choose('general')"><div class="emo">🩺</div><div class="lbl" data-i18n="p_general">General patient</div><span class="arrow">→</span></div>
+      </section>
+
+      <!-- SCAN -->
       <section class="screen" id="s-scan">
         <div class="apphead">
           <div class="brand"><div class="logo"><svg width="20" height="20" viewBox="0 0 42 42" fill="none"><rect x="7" y="12" width="28" height="19" rx="4" stroke="#fff" stroke-width="2.6"/><path d="M7 26h6l2.5-6 3.5 10 3-7 2 3h6" stroke="#8CF0DE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="name">Sehat<b>ly</b></div></div>
-          <div class="hbtns">
-            <div class="iconbtn speak" onclick="listen(this,'scan')" title="Listen">🔊</div>
-            <div class="iconbtn" onclick="openSheet()" title="Language">🌐</div>
-          </div>
+          <div class="hbtns"><div class="iconbtn speak" onclick="listen(this,'scan')">🔊</div><div class="iconbtn" onclick="openSheet()">🌐</div></div>
         </div>
         <h1 class="big" data-i18n="scan_title">Scan your insurance card</h1>
         <div class="scanframe" id="scanframe">
-          <div class="idcard">
-            <div class="prov">Daman</div>
-            <div class="chip"></div>
-            <div class="row1">Health Insurance</div>
-            <div class="plan">Basic Plan</div>
-            <div class="num">•••• 4821 7730</div>
-          </div>
+          <div class="idcard"><div class="prov">Daman</div><div class="chip"></div><div class="row1">Health Insurance</div><div class="plan">Basic Plan</div><div class="num">•••• 4821 7730</div></div>
           <div class="scanline"></div>
         </div>
         <div class="scanstatus" id="scanstatus"><span class="spin"></span><span data-i18n="scanning">Reading your card…</span></div>
-        <p class="sub" data-i18n="scan_hint" id="scanhint">Hold your card inside the frame</p>
+        <p class="sub" id="scanhint" data-i18n="scan_hint">Hold your card inside the frame</p>
         <div class="grow"></div>
         <button class="btn primary" id="scanbtn" onclick="doScan()"><span>📷</span><span data-i18n="scan_btn">Scan card</span></button>
       </section>
 
-      <!-- SCREEN: FOUND -->
+      <!-- FOUND -->
       <section class="screen" id="s-found">
         <div class="apphead">
           <div class="brand"><div class="logo"><svg width="20" height="20" viewBox="0 0 42 42" fill="none"><rect x="7" y="12" width="28" height="19" rx="4" stroke="#fff" stroke-width="2.6"/><path d="M7 26h6l2.5-6 3.5 10 3-7 2 3h6" stroke="#8CF0DE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="name">Sehat<b>ly</b></div></div>
@@ -261,28 +314,20 @@
         </div>
         <div class="successcheck"><svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M8 17.5l6 6 12-13" stroke="#0FB5A4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h1 class="big" style="text-align:center; margin-bottom:16px;" data-i18n="plan_found">We found your plan</h1>
-        <div class="resultcard">
-          <div class="prov">Daman</div>
-          <div class="chip"></div>
-          <div class="lbl" data-i18n="plan_label">Your plan</div>
-          <div class="planname">Basic Health Plan</div>
-          <div class="num">•••• 4821 7730</div>
-        </div>
-        <div class="infoline">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.7l2.4 4.9 5.4.8-3.9 3.8.9 5.3L10 14.8l-4.8 2.5.9-5.3L2.2 8.2l5.4-.8L10 1.7z" fill="#0FB5A4"/></svg>
-          <span data-i18n="covered_summary">Covered across 2,400+ clinics in the UAE</span>
-        </div>
+        <div class="resultcard"><div class="prov">Daman</div><div class="chip"></div><div class="lbl" data-i18n="plan_label">Your plan</div><div class="planname">Basic Health Plan</div><div class="num">•••• 4821 7730</div></div>
+        <div class="infoline"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.7l2.4 4.9 5.4.8-3.9 3.8.9 5.3L10 14.8l-4.8 2.5.9-5.3L2.2 8.2l5.4-.8L10 1.7z" fill="#0FB5A4"/></svg><span data-i18n="covered_summary">Covered across 2,400+ clinics in the UAE</span></div>
         <div class="grow"></div>
         <button class="btn primary" onclick="go('clinics')"><span data-i18n="continue">Continue</span><span>→</span></button>
       </section>
 
-      <!-- SCREEN: CLINICS -->
+      <!-- CLINICS -->
       <section class="screen" id="s-clinics">
         <div class="apphead">
           <div class="brand"><div class="logo"><svg width="20" height="20" viewBox="0 0 42 42" fill="none"><rect x="7" y="12" width="28" height="19" rx="4" stroke="#fff" stroke-width="2.6"/><path d="M7 26h6l2.5-6 3.5 10 3-7 2 3h6" stroke="#8CF0DE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="name">Sehat<b>ly</b></div></div>
           <div class="hbtns"><div class="iconbtn speak" onclick="listen(this,'clinics')">🔊</div><div class="iconbtn" onclick="openSheet()">🌐</div></div>
         </div>
         <div class="eyebrow" data-i18n="find_clinics">Clinics that accept your plan</div>
+        <div class="pbanner" id="profileBanner"><div class="pi">✨</div><span data-i18n="ban_disability">Showing accessible clinics with priority booking</span></div>
         <div class="mapband">
           <div class="road" style="top:0; bottom:0; left:44%; width:10px;"></div>
           <div class="road" style="left:0; right:0; top:58%; height:10px;"></div>
@@ -291,48 +336,64 @@
           <div class="pin" style="left:68%; top:32%;"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 1C8 1 4 5 4 10c0 6 9 15 9 15s9-9 9-15c0-5-4-9-9-9z" fill="#037D8C"/><circle cx="13" cy="10" r="3.4" fill="#fff"/></svg></div>
           <div class="pin" style="left:80%; top:70%;"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 1C8 1 4 5 4 10c0 6 9 15 9 15s9-9 9-15c0-5-4-9-9-9z" fill="#037D8C"/><circle cx="13" cy="10" r="3.4" fill="#fff"/></svg></div>
         </div>
-        <div class="clinic" onclick="chooseClinic('Al Noor Polyclinic','General & Dental','Deira • 0.8 km')">
+
+        <div class="clinic" onclick="chooseClinic('Al Noor Polyclinic','Deira • 0.8 km')">
           <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#037D8C" stroke-width="2.6" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="5" stroke="#037D8C" stroke-width="2"/></svg></div>
-          <div class="body">
-            <div class="nm">Al Noor Polyclinic</div>
-            <div class="spec">General & Dental</div>
+          <div class="body"><div class="nm">Al Noor Polyclinic</div><div class="spec">General &amp; Dental</div>
             <div class="chiprow">
               <span class="tag dist">📍 0.8 km</span>
               <span class="tag ok">✓ <span data-i18n="accepts_plan">Accepts your plan</span></span>
               <span class="tag lang">🗣 Hindi, Urdu</span>
+              <span class="tag acc ptag wheelchair" style="display:none">♿ <span data-i18n="tag_wheelchair">Wheelchair access</span></span>
+              <span class="tag acc ptag sign" style="display:none">🧏 <span data-i18n="tag_sign">Sign language</span></span>
+              <span class="tag acc ptag priority" style="display:none">⚡ <span data-i18n="tag_priority">Priority booking</span></span>
+              <span class="tag acc ptag pediatric" style="display:none">👶 <span data-i18n="tag_pediatric">Children's care</span></span>
+              <span class="tag acc ptag maternity" style="display:none">🤰 <span data-i18n="tag_maternity">Pregnancy care</span></span>
             </div>
           </div>
         </div>
-        <div class="clinic" onclick="chooseClinic('Aster Clinic, Muhaisnah','General Practice','Muhaisnah • 1.4 km')">
+
+        <div class="clinic" onclick="chooseClinic('Aster Clinic, Muhaisnah','Muhaisnah • 1.4 km')">
           <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#037D8C" stroke-width="2.6" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="5" stroke="#037D8C" stroke-width="2"/></svg></div>
-          <div class="body">
-            <div class="nm">Aster Clinic, Muhaisnah</div>
-            <div class="spec">General Practice</div>
+          <div class="body"><div class="nm">Aster Clinic, Muhaisnah</div><div class="spec">General Practice</div>
             <div class="chiprow">
               <span class="tag dist">📍 1.4 km</span>
               <span class="tag ok">✓ <span data-i18n="accepts_plan">Accepts your plan</span></span>
               <span class="tag lang">🗣 Hindi, Malayalam</span>
+              <span class="tag acc ptag wheelchair" style="display:none">♿ <span data-i18n="tag_wheelchair">Wheelchair access</span></span>
+              <span class="tag acc ptag priority" style="display:none">⚡ <span data-i18n="tag_priority">Priority booking</span></span>
+              <span class="tag acc ptag pediatric" style="display:none">👶 <span data-i18n="tag_pediatric">Children's care</span></span>
+              <span class="tag acc ptag maternity" style="display:none">🤰 <span data-i18n="tag_maternity">Pregnancy care</span></span>
             </div>
           </div>
         </div>
-        <div class="clinic" onclick="chooseClinic('NMC Medical Centre','Family Medicine','Al Qusais • 2.1 km')">
+
+        <div class="clinic" onclick="chooseClinic('NMC Medical Centre','Al Qusais • 2.1 km')">
           <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#037D8C" stroke-width="2.6" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="5" stroke="#037D8C" stroke-width="2"/></svg></div>
-          <div class="body">
-            <div class="nm">NMC Medical Centre</div>
-            <div class="spec">Family Medicine</div>
+          <div class="body"><div class="nm">NMC Medical Centre</div><div class="spec">Family Medicine</div>
             <div class="chiprow">
               <span class="tag dist">📍 2.1 km</span>
               <span class="tag ok">✓ <span data-i18n="accepts_plan">Accepts your plan</span></span>
               <span class="tag lang">🗣 Urdu, Tagalog</span>
+              <span class="tag acc ptag wheelchair" style="display:none">♿ <span data-i18n="tag_wheelchair">Wheelchair access</span></span>
+              <span class="tag acc ptag sign" style="display:none">🧏 <span data-i18n="tag_sign">Sign language</span></span>
+              <span class="tag acc ptag priority" style="display:none">⚡ <span data-i18n="tag_priority">Priority booking</span></span>
+              <span class="tag acc ptag pediatric" style="display:none">👶 <span data-i18n="tag_pediatric">Children's care</span></span>
+              <span class="tag acc ptag maternity" style="display:none">🤰 <span data-i18n="tag_maternity">Pregnancy care</span></span>
             </div>
           </div>
         </div>
+
+        <div class="assist" id="transportCard">
+          <div class="ac">🚐</div>
+          <div><div class="at" data-i18n="transport_title">Need accessible transport?</div><div class="ah" data-i18n="transport_hint">We can arrange wheelchair-friendly transport to your visit</div></div>
+        </div>
       </section>
 
-      <!-- SCREEN: COVERAGE -->
+      <!-- COVERAGE -->
       <section class="screen" id="s-cover">
         <div class="apphead">
-          <div class="iconbtn" onclick="go('clinics')" title="Back">←</div>
+          <div class="iconbtn" onclick="go('clinics')">←</div>
           <div class="hbtns"><div class="iconbtn speak" onclick="listen(this,'cover')">🔊</div><div class="iconbtn" onclick="openSheet()">🌐</div></div>
         </div>
         <div class="covhead">
@@ -341,34 +402,22 @@
         </div>
         <div class="eyebrow" data-i18n="coverage_title">Your coverage here</div>
         <div class="bigcover"><span data-i18n="cov_headline_a">You're covered for a</span> <b data-i18n="cov_headline_b">doctor visit</b>. <span data-i18n="cov_headline_c">You'll pay</span> <b>AED 0</b>.</div>
-        <div class="covrow">
-          <div class="l"><span class="d">🩺</span><span data-i18n="consultation">Doctor consultation</span></div>
-          <div class="v free" data-i18n="free">Free</div>
-        </div>
-        <div class="covrow">
-          <div class="l"><span class="d">💊</span><span data-i18n="medicines">Basic medicines</span></div>
-          <div class="v free" data-i18n="covered">Covered</div>
-        </div>
-        <div class="covrow">
-          <div class="l"><span class="d">🧪</span><span data-i18n="labtests">Lab tests</span></div>
-          <div class="v pay">AED 25</div>
-        </div>
+        <div class="covrow"><div class="l"><span class="d">🩺</span><span data-i18n="consultation">Doctor consultation</span></div><div class="v free" data-i18n="free">Free</div></div>
+        <div class="covrow"><div class="l"><span class="d">💊</span><span data-i18n="medicines">Basic medicines</span></div><div class="v free" data-i18n="covered">Covered</div></div>
+        <div class="covrow"><div class="l"><span class="d">🧪</span><span data-i18n="labtests">Lab tests</span></div><div class="v">AED 25</div></div>
         <div class="grow"></div>
         <button class="btn primary" onclick="go('time')"><span>📅</span><span data-i18n="book_btn">Book appointment</span></button>
       </section>
 
-      <!-- SCREEN: TIME -->
+      <!-- TIME -->
       <section class="screen" id="s-time">
         <div class="apphead">
-          <div class="iconbtn" onclick="go('cover')" title="Back">←</div>
+          <div class="iconbtn" onclick="go('cover')">←</div>
           <div class="hbtns"><div class="iconbtn speak" onclick="listen(this,'time')">🔊</div><div class="iconbtn" onclick="openSheet()">🌐</div></div>
         </div>
         <h1 class="big" data-i18n="pick_time">Pick a time</h1>
         <p class="sub" id="time-clinic" style="margin-bottom:6px;">Al Noor Polyclinic</p>
-        <div class="daytabs">
-          <div class="daytab sel" onclick="selDay(this)" data-i18n="today">Today</div>
-          <div class="daytab" onclick="selDay(this)" data-i18n="tomorrow">Tomorrow</div>
-        </div>
+        <div class="daytabs"><div class="daytab sel" onclick="selDay(this)" data-i18n="today">Today</div><div class="daytab" onclick="selDay(this)" data-i18n="tomorrow">Tomorrow</div></div>
         <div class="slots">
           <div class="slot" onclick="selSlot(this,'9:00 AM')">9:00 AM</div>
           <div class="slot sel" onclick="selSlot(this,'10:30 AM')">10:30 AM</div>
@@ -379,7 +428,7 @@
         <button class="btn primary" onclick="go('done')"><span data-i18n="confirm_btn">Confirm booking</span><span>→</span></button>
       </section>
 
-      <!-- SCREEN: DONE -->
+      <!-- DONE -->
       <section class="screen" id="s-done">
         <div class="bookedwrap">
           <div class="bigcheck"><svg width="46" height="46" viewBox="0 0 46 46" fill="none"><path d="M11 24l8 8 16-18" stroke="#fff" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -390,12 +439,10 @@
             <div class="sr"><span class="k" data-i18n="k_when">When</span><span class="val"><span data-i18n="today">Today</span> · <span id="done-time">10:30 AM</span></span></div>
             <div class="sr"><span class="k" data-i18n="k_cost">You pay</span><span class="val" style="color:var(--sea)">AED 0</span></div>
           </div>
+          <div id="reminderRow"><div class="rc">🔔</div><div class="rt" data-i18n="reminder_label">Set up reminders &amp; follow-up care</div></div>
           <div class="assist">
             <div class="ac"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 12l5 2v4a2 2 0 01-2 2A15 15 0 012 5a2 2 0 012-1z" fill="#4a2c0c"/></svg></div>
-            <div>
-              <div class="at" data-i18n="need_help">Need help? Talk to a guide</div>
-              <div class="ah" data-i18n="guide_hint">A real person who speaks your language will call you</div>
-            </div>
+            <div><div class="at" data-i18n="need_help">Need help? Talk to a guide</div><div class="ah" data-i18n="guide_hint">A real person who speaks your language will call you</div></div>
           </div>
           <button class="btn ghost" onclick="restart()" data-i18n="done">Done</button>
         </div>
@@ -412,122 +459,109 @@
         <div class="langbtn" onclick="pickSheet('tl')"><div class="native">Tagalog</div><span class="arrow">→</span></div>
         <div class="langbtn" onclick="pickSheet('ar')"><div class="native">العربية</div><span class="arrow">→</span></div>
       </div>
-
     </div>
   </div>
 </div>
 
 <script>
-/* ---------------- i18n ---------------- */
 const T = {
-  en:{ choose_language:"Choose your language", scan_title:"Scan your insurance card", scan_hint:"Hold your card inside the frame", scan_btn:"Scan card", scanning:"Reading your card…", plan_found:"We found your plan", plan_label:"Your plan", covered_summary:"Covered across 2,400+ clinics in the UAE", continue:"Continue", find_clinics:"Clinics that accept your plan", accepts_plan:"Accepts your plan", coverage_title:"Your coverage here", cov_headline_a:"You're covered for a", cov_headline_b:"doctor visit", cov_headline_c:"You'll pay", consultation:"Doctor consultation", medicines:"Basic medicines", labtests:"Lab tests", free:"Free", covered:"Covered", book_btn:"Book appointment", pick_time:"Pick a time", today:"Today", tomorrow:"Tomorrow", confirm_btn:"Confirm booking", booked_title:"You're booked!", booked_sub:"We've sent the details to your phone", k_clinic:"Clinic", k_when:"When", k_cost:"You pay", need_help:"Need help? Talk to a guide", guide_hint:"A real person who speaks your language will call you", done:"Done" },
-  hi:{ choose_language:"अपनी भाषा चुनें", scan_title:"अपना बीमा कार्ड स्कैन करें", scan_hint:"कार्ड को फ्रेम के अंदर रखें", scan_btn:"कार्ड स्कैन करें", scanning:"आपका कार्ड पढ़ रहे हैं…", plan_found:"आपका प्लान मिल गया", plan_label:"आपका प्लान", covered_summary:"यूएई में 2,400+ क्लीनिक में मान्य", continue:"आगे बढ़ें", find_clinics:"आपका प्लान स्वीकार करने वाले क्लीनिक", accepts_plan:"आपका प्लान स्वीकार करता है", coverage_title:"यहाँ आपकी कवरेज", cov_headline_a:"आप कवर हैं", cov_headline_b:"डॉक्टर विज़िट", cov_headline_c:"आप देंगे", consultation:"डॉक्टर परामर्श", medicines:"बुनियादी दवाइयाँ", labtests:"लैब टेस्ट", free:"मुफ़्त", covered:"कवर", book_btn:"अपॉइंटमेंट बुक करें", pick_time:"समय चुनें", today:"आज", tomorrow:"कल", confirm_btn:"बुकिंग पक्की करें", booked_title:"आपकी बुकिंग हो गई!", booked_sub:"विवरण आपके फ़ोन पर भेज दिए हैं", k_clinic:"क्लीनिक", k_when:"कब", k_cost:"आप देंगे", need_help:"मदद चाहिए? गाइड से बात करें", guide_hint:"आपकी भाषा बोलने वाला व्यक्ति आपको कॉल करेगा", done:"पूरा" },
-  ur:{ choose_language:"اپنی زبان منتخب کریں", scan_title:"اپنا انشورنس کارڈ اسکین کریں", scan_hint:"کارڈ کو فریم کے اندر رکھیں", scan_btn:"کارڈ اسکین کریں", scanning:"آپ کا کارڈ پڑھ رہے ہیں…", plan_found:"آپ کا پلان مل گیا", plan_label:"آپ کا پلان", covered_summary:"یو اے ای میں 2,400+ کلینک میں قابلِ قبول", continue:"آگے بڑھیں", find_clinics:"کلینک جو آپ کا پلان قبول کرتے ہیں", accepts_plan:"آپ کا پلان قبول کرتا ہے", coverage_title:"یہاں آپ کی کوریج", cov_headline_a:"آپ کور ہیں", cov_headline_b:"ڈاکٹر وزٹ", cov_headline_c:"آپ ادا کریں گے", consultation:"ڈاکٹر سے مشورہ", medicines:"بنیادی ادویات", labtests:"لیب ٹیسٹ", free:"مفت", covered:"شامل", book_btn:"اپائنٹمنٹ بک کریں", pick_time:"وقت منتخب کریں", today:"آج", tomorrow:"کل", confirm_btn:"بکنگ پکی کریں", booked_title:"آپ کی بکنگ ہو گئی!", booked_sub:"تفصیلات آپ کے فون پر بھیج دی ہیں", k_clinic:"کلینک", k_when:"کب", k_cost:"آپ ادا کریں گے", need_help:"مدد چاہیے؟ گائیڈ سے بات کریں", guide_hint:"آپ کی زبان بولنے والا شخص آپ کو کال کرے گا", done:"مکمل" },
-  tl:{ choose_language:"Piliin ang iyong wika", scan_title:"I-scan ang iyong insurance card", scan_hint:"Ilagay ang card sa loob ng frame", scan_btn:"I-scan ang card", scanning:"Binabasa ang iyong card…", plan_found:"Nakita ang iyong plan", plan_label:"Ang iyong plan", covered_summary:"Tinatanggap sa 2,400+ klinika sa UAE", continue:"Magpatuloy", find_clinics:"Mga klinikang tumatanggap ng iyong plan", accepts_plan:"Tinatanggap ang plan mo", coverage_title:"Ang iyong coverage dito", cov_headline_a:"Saklaw ka para sa", cov_headline_b:"pagpapatingin sa doktor", cov_headline_c:"Babayaran mo", consultation:"Konsultasyon sa doktor", medicines:"Pangunahing gamot", labtests:"Lab tests", free:"Libre", covered:"Saklaw", book_btn:"Mag-book ng appointment", pick_time:"Pumili ng oras", today:"Ngayon", tomorrow:"Bukas", confirm_btn:"Kumpirmahin ang booking", booked_title:"Naka-book ka na!", booked_sub:"Ipinadala namin ang detalye sa telepono mo", k_clinic:"Klinika", k_when:"Kailan", k_cost:"Babayaran", need_help:"Kailangan ng tulong? Kausapin ang gabay", guide_hint:"May totoong taong nagsasalita ng wika mo ang tatawag sa iyo", done:"Tapos" },
-  ar:{ choose_language:"اختر لغتك", scan_title:"امسح بطاقة التأمين", scan_hint:"ضع البطاقة داخل الإطار", scan_btn:"مسح البطاقة", scanning:"جارٍ قراءة بطاقتك…", plan_found:"وجدنا خطتك", plan_label:"خطتك", covered_summary:"مقبولة في أكثر من 2400 عيادة في الإمارات", continue:"متابعة", find_clinics:"العيادات التي تقبل خطتك", accepts_plan:"تقبل خطتك", coverage_title:"تغطيتك هنا", cov_headline_a:"أنت مغطى لـ", cov_headline_b:"زيارة الطبيب", cov_headline_c:"ستدفع", consultation:"استشارة الطبيب", medicines:"الأدوية الأساسية", labtests:"الفحوصات المخبرية", free:"مجاني", covered:"مغطى", book_btn:"احجز موعد", pick_time:"اختر الوقت", today:"اليوم", tomorrow:"غدًا", confirm_btn:"تأكيد الحجز", booked_title:"تم حجز موعدك!", booked_sub:"أرسلنا التفاصيل إلى هاتفك", k_clinic:"العيادة", k_when:"الوقت", k_cost:"ستدفع", need_help:"تحتاج مساعدة؟ تحدث مع مرشد", guide_hint:"شخص يتحدث لغتك سيتصل بك", done:"تم" }
+  en:{ choose_language:"Choose your language", login_title:"Sign in with Emirates ID", login_sub:"We'll find your insurance and set up your care", eid_label:"Emirates ID number", login_btn:"Sign in", login_secure:"Your details are private and secure", personalize_title:"How can we help you today?", personalize_sub:"Pick what fits you, so we can make it easier", need_or:"or tell us what you need", p_healthy:"I'm healthy — just need a clinic", p_disability:"Person with a disability", p_older:"Older adult", p_parent:"Parent with children", p_chronic:"Living with a long-term illness", p_pregnant:"Pregnant", p_tourist:"Tourist or visitor", p_general:"General patient", ban_disability:"Showing accessible clinics with priority booking", ban_older:"Larger text on · showing easy-access clinics", ban_parent:"Showing children's & family clinics", ban_chronic:"We'll set up reminders and follow-up for you", ban_pregnant:"Showing clinics with pregnancy care", ban_tourist:"Showing clinics that accept visitor insurance", tag_wheelchair:"Wheelchair access", tag_sign:"Sign language", tag_priority:"Priority booking", tag_pediatric:"Children's care", tag_maternity:"Pregnancy care", transport_title:"Need accessible transport?", transport_hint:"We can arrange wheelchair-friendly transport to your visit", reminder_label:"Set up reminders & follow-up care", scan_title:"Scan your insurance card", scan_hint:"Hold your card inside the frame", scan_btn:"Scan card", scanning:"Reading your card…", plan_found:"We found your plan", plan_label:"Your plan", covered_summary:"Covered across 2,400+ clinics in the UAE", continue:"Continue", find_clinics:"Clinics that accept your plan", accepts_plan:"Accepts your plan", coverage_title:"Your coverage here", cov_headline_a:"You're covered for a", cov_headline_b:"doctor visit", cov_headline_c:"You'll pay", consultation:"Doctor consultation", medicines:"Basic medicines", labtests:"Lab tests", free:"Free", covered:"Covered", book_btn:"Book appointment", pick_time:"Pick a time", today:"Today", tomorrow:"Tomorrow", confirm_btn:"Confirm booking", booked_title:"You're booked!", booked_sub:"We've sent the details to your phone", k_clinic:"Clinic", k_when:"When", k_cost:"You pay", need_help:"Need help? Talk to a guide", guide_hint:"A real person who speaks your language will call you", done:"Done" },
+  hi:{ choose_language:"अपनी भाषा चुनें", login_title:"एमिरेट्स ID से साइन इन करें", login_sub:"हम आपका बीमा ढूँढेंगे और आपकी देखभाल सेट करेंगे", eid_label:"एमिरेट्स ID नंबर", login_btn:"साइन इन करें", login_secure:"आपकी जानकारी निजी और सुरक्षित है", personalize_title:"आज हम आपकी कैसे मदद करें?", personalize_sub:"जो आप पर लागू हो चुनें, ताकि हम आसान बना सकें", need_or:"या हमें बताएं आपको क्या चाहिए", p_healthy:"मैं स्वस्थ हूँ — बस क्लीनिक चाहिए", p_disability:"दिव्यांग व्यक्ति", p_older:"बुज़ुर्ग व्यक्ति", p_parent:"बच्चों वाले माता-पिता", p_chronic:"लंबी बीमारी के साथ", p_pregnant:"गर्भवती", p_tourist:"पर्यटक या आगंतुक", p_general:"सामान्य मरीज़", ban_disability:"सुलभ क्लीनिक और प्राथमिकता बुकिंग दिखा रहे हैं", ban_older:"बड़ा टेक्स्ट चालू · आसान पहुँच वाले क्लीनिक", ban_parent:"बच्चों और परिवार के क्लीनिक दिखा रहे हैं", ban_chronic:"हम आपके लिए रिमाइंडर और फ़ॉलो-अप सेट करेंगे", ban_pregnant:"गर्भावस्था देखभाल वाले क्लीनिक दिखा रहे हैं", ban_tourist:"आगंतुक बीमा स्वीकार करने वाले क्लीनिक दिखा रहे हैं", tag_wheelchair:"व्हीलचेयर सुलभ", tag_sign:"सांकेतिक भाषा", tag_priority:"प्राथमिकता बुकिंग", tag_pediatric:"बच्चों की देखभाल", tag_maternity:"गर्भावस्था देखभाल", transport_title:"सुलभ परिवहन चाहिए?", transport_hint:"हम आपकी विज़िट के लिए व्हीलचेयर-अनुकूल परिवहन की व्यवस्था कर सकते हैं", reminder_label:"रिमाइंडर और फ़ॉलो-अप देखभाल सेट करें", scan_title:"अपना बीमा कार्ड स्कैन करें", scan_hint:"कार्ड को फ्रेम के अंदर रखें", scan_btn:"कार्ड स्कैन करें", scanning:"आपका कार्ड पढ़ रहे हैं…", plan_found:"आपका प्लान मिल गया", plan_label:"आपका प्लान", covered_summary:"यूएई में 2,400+ क्लीनिक में मान्य", continue:"आगे बढ़ें", find_clinics:"आपका प्लान स्वीकार करने वाले क्लीनिक", accepts_plan:"आपका प्लान स्वीकार करता है", coverage_title:"यहाँ आपकी कवरेज", cov_headline_a:"आप कवर हैं", cov_headline_b:"डॉक्टर विज़िट", cov_headline_c:"आप देंगे", consultation:"डॉक्टर परामर्श", medicines:"बुनियादी दवाइयाँ", labtests:"लैब टेस्ट", free:"मुफ़्त", covered:"कवर", book_btn:"अपॉइंटमेंट बुक करें", pick_time:"समय चुनें", today:"आज", tomorrow:"कल", confirm_btn:"बुकिंग पक्की करें", booked_title:"आपकी बुकिंग हो गई!", booked_sub:"विवरण आपके फ़ोन पर भेज दिए हैं", k_clinic:"क्लीनिक", k_when:"कब", k_cost:"आप देंगे", need_help:"मदद चाहिए? गाइड से बात करें", guide_hint:"आपकी भाषा बोलने वाला व्यक्ति आपको कॉल करेगा", done:"पूरा" },
+  ur:{ choose_language:"اپنی زبان منتخب کریں", login_title:"ایمریٹس ID سے سائن ان کریں", login_sub:"ہم آپ کا انشورنس ڈھونڈیں گے اور آپ کی دیکھ بھال ترتیب دیں گے", eid_label:"ایمریٹس ID نمبر", login_btn:"سائن ان کریں", login_secure:"آپ کی معلومات نجی اور محفوظ ہیں", personalize_title:"آج ہم آپ کی کیسے مدد کریں؟", personalize_sub:"جو آپ پر لاگو ہو منتخب کریں، تاکہ ہم آسان بنا سکیں", need_or:"یا ہمیں بتائیں آپ کو کیا چاہیے", p_healthy:"میں صحت مند ہوں — بس کلینک چاہیے", p_disability:"معذور فرد", p_older:"عمر رسیدہ فرد", p_parent:"بچوں والے والدین", p_chronic:"طویل بیماری کے ساتھ", p_pregnant:"حاملہ", p_tourist:"سیاح یا مہمان", p_general:"عام مریض", ban_disability:"قابلِ رسائی کلینک اور ترجیحی بکنگ دکھا رہے ہیں", ban_older:"بڑا متن آن · آسان رسائی والے کلینک", ban_parent:"بچوں اور خاندان کے کلینک دکھا رہے ہیں", ban_chronic:"ہم آپ کے لیے یاد دہانی اور فالو اپ ترتیب دیں گے", ban_pregnant:"حمل کی دیکھ بھال والے کلینک دکھا رہے ہیں", ban_tourist:"مہمان انشورنس قبول کرنے والے کلینک دکھا رہے ہیں", tag_wheelchair:"وہیل چیئر رسائی", tag_sign:"اشاروں کی زبان", tag_priority:"ترجیحی بکنگ", tag_pediatric:"بچوں کی دیکھ بھال", tag_maternity:"حمل کی دیکھ بھال", transport_title:"قابلِ رسائی ٹرانسپورٹ چاہیے؟", transport_hint:"ہم آپ کی ملاقات کے لیے وہیل چیئر کے موافق ٹرانسپورٹ کا بندوبست کر سکتے ہیں", reminder_label:"یاد دہانی اور فالو اپ دیکھ بھال ترتیب دیں", scan_title:"اپنا انشورنس کارڈ اسکین کریں", scan_hint:"کارڈ کو فریم کے اندر رکھیں", scan_btn:"کارڈ اسکین کریں", scanning:"آپ کا کارڈ پڑھ رہے ہیں…", plan_found:"آپ کا پلان مل گیا", plan_label:"آپ کا پلان", covered_summary:"یو اے ای میں 2,400+ کلینک میں قابلِ قبول", continue:"آگے بڑھیں", find_clinics:"کلینک جو آپ کا پلان قبول کرتے ہیں", accepts_plan:"آپ کا پلان قبول کرتا ہے", coverage_title:"یہاں آپ کی کوریج", cov_headline_a:"آپ کور ہیں", cov_headline_b:"ڈاکٹر وزٹ", cov_headline_c:"آپ ادا کریں گے", consultation:"ڈاکٹر سے مشورہ", medicines:"بنیادی ادویات", labtests:"لیب ٹیسٹ", free:"مفت", covered:"شامل", book_btn:"اپائنٹمنٹ بک کریں", pick_time:"وقت منتخب کریں", today:"آج", tomorrow:"کل", confirm_btn:"بکنگ پکی کریں", booked_title:"آپ کی بکنگ ہو گئی!", booked_sub:"تفصیلات آپ کے فون پر بھیج دی ہیں", k_clinic:"کلینک", k_when:"کب", k_cost:"آپ ادا کریں گے", need_help:"مدد چاہیے؟ گائیڈ سے بات کریں", guide_hint:"آپ کی زبان بولنے والا شخص آپ کو کال کرے گا", done:"مکمل" },
+  tl:{ choose_language:"Piliin ang iyong wika", login_title:"Mag-sign in gamit ang Emirates ID", login_sub:"Hahanapin namin ang iyong insurance at ihahanda ang iyong pangangalaga", eid_label:"Emirates ID number", login_btn:"Mag-sign in", login_secure:"Pribado at ligtas ang iyong impormasyon", personalize_title:"Paano ka namin matutulungan ngayon?", personalize_sub:"Piliin ang naaangkop sa iyo para mas madali", need_or:"o sabihin sa amin ang kailangan mo", p_healthy:"Malusog ako — klinika lang ang kailangan", p_disability:"May kapansanan", p_older:"Senior o matanda", p_parent:"Magulang na may mga anak", p_chronic:"May pangmatagalang sakit", p_pregnant:"Buntis", p_tourist:"Turista o bisita", p_general:"Pangkalahatang pasyente", ban_disability:"Nagpapakita ng accessible na klinika na may priority booking", ban_older:"Naka-on ang mas malaking text · madaling ma-access na klinika", ban_parent:"Nagpapakita ng klinika para sa mga bata at pamilya", ban_chronic:"Ihahanda namin ang mga paalala at follow-up para sa iyo", ban_pregnant:"Nagpapakita ng klinika na may pangangalaga sa pagbubuntis", ban_tourist:"Nagpapakita ng klinika na tumatanggap ng visitor insurance", tag_wheelchair:"Wheelchair access", tag_sign:"Sign language", tag_priority:"Priority booking", tag_pediatric:"Pangangalaga sa bata", tag_maternity:"Pangangalaga sa pagbubuntis", transport_title:"Kailangan ng accessible na transport?", transport_hint:"Maaari kaming mag-ayos ng wheelchair-friendly na transport papunta sa iyong appointment", reminder_label:"Mag-set up ng mga paalala at follow-up na pangangalaga", scan_title:"I-scan ang iyong insurance card", scan_hint:"Ilagay ang card sa loob ng frame", scan_btn:"I-scan ang card", scanning:"Binabasa ang iyong card…", plan_found:"Nakita ang iyong plan", plan_label:"Ang iyong plan", covered_summary:"Tinatanggap sa 2,400+ klinika sa UAE", continue:"Magpatuloy", find_clinics:"Mga klinikang tumatanggap ng iyong plan", accepts_plan:"Tinatanggap ang plan mo", coverage_title:"Ang iyong coverage dito", cov_headline_a:"Saklaw ka para sa", cov_headline_b:"pagpapatingin sa doktor", cov_headline_c:"Babayaran mo", consultation:"Konsultasyon sa doktor", medicines:"Pangunahing gamot", labtests:"Lab tests", free:"Libre", covered:"Saklaw", book_btn:"Mag-book ng appointment", pick_time:"Pumili ng oras", today:"Ngayon", tomorrow:"Bukas", confirm_btn:"Kumpirmahin ang booking", booked_title:"Naka-book ka na!", booked_sub:"Ipinadala namin ang detalye sa telepono mo", k_clinic:"Klinika", k_when:"Kailan", k_cost:"Babayaran", need_help:"Kailangan ng tulong? Kausapin ang gabay", guide_hint:"May totoong taong nagsasalita ng wika mo ang tatawag sa iyo", done:"Tapos" },
+  ar:{ choose_language:"اختر لغتك", login_title:"سجّل الدخول بالهوية الإماراتية", login_sub:"سنجد تأمينك ونجهّز رعايتك", eid_label:"رقم الهوية الإماراتية", login_btn:"تسجيل الدخول", login_secure:"معلوماتك خاصة وآمنة", personalize_title:"كيف يمكننا مساعدتك اليوم؟", personalize_sub:"اختر ما يناسبك لنجعل الأمر أسهل", need_or:"أو أخبرنا بما تحتاج", p_healthy:"أنا بصحة جيدة — أريد عيادة فقط", p_disability:"من أصحاب الهمم", p_older:"شخص كبير السن", p_parent:"والد لديه أطفال", p_chronic:"أعاني من مرض مزمن", p_pregnant:"حامل", p_tourist:"سائح أو زائر", p_general:"مريض عام", ban_disability:"نعرض عيادات مهيأة مع حجز ذي أولوية", ban_older:"تم تكبير النص · نعرض عيادات سهلة الوصول", ban_parent:"نعرض عيادات الأطفال والعائلة", ban_chronic:"سنجهّز لك التذكيرات والمتابعة", ban_pregnant:"نعرض عيادات رعاية الحمل", ban_tourist:"نعرض عيادات تقبل تأمين الزوّار", tag_wheelchair:"وصول كرسي متحرك", tag_sign:"لغة الإشارة", tag_priority:"حجز ذو أولوية", tag_pediatric:"رعاية الأطفال", tag_maternity:"رعاية الحمل", transport_title:"تحتاج وسيلة نقل مهيأة؟", transport_hint:"يمكننا ترتيب وسيلة نقل مناسبة للكرسي المتحرك إلى موعدك", reminder_label:"جهّز التذكيرات ومتابعة الرعاية", scan_title:"امسح بطاقة التأمين", scan_hint:"ضع البطاقة داخل الإطار", scan_btn:"مسح البطاقة", scanning:"جارٍ قراءة بطاقتك…", plan_found:"وجدنا خطتك", plan_label:"خطتك", covered_summary:"مقبولة في أكثر من 2400 عيادة في الإمارات", continue:"متابعة", find_clinics:"العيادات التي تقبل خطتك", accepts_plan:"تقبل خطتك", coverage_title:"تغطيتك هنا", cov_headline_a:"أنت مغطى لـ", cov_headline_b:"زيارة الطبيب", cov_headline_c:"ستدفع", consultation:"استشارة الطبيب", medicines:"الأدوية الأساسية", labtests:"الفحوصات المخبرية", free:"مجاني", covered:"مغطى", book_btn:"احجز موعد", pick_time:"اختر الوقت", today:"اليوم", tomorrow:"غدًا", confirm_btn:"تأكيد الحجز", booked_title:"تم حجز موعدك!", booked_sub:"أرسلنا التفاصيل إلى هاتفك", k_clinic:"العيادة", k_when:"الوقت", k_cost:"ستدفع", need_help:"تحتاج مساعدة؟ تحدث مع مرشد", guide_hint:"شخص يتحدث لغتك سيتصل بك", done:"تم" }
 };
 const RTL = { ar:true, ur:true };
 const LOCALE = { en:'en-US', hi:'hi-IN', ur:'ur-PK', tl:'fil-PH', ar:'ar-SA' };
-const SPEAK = {
-  scan:'scan_title', found:'plan_found', clinics:'find_clinics',
-  cover:'coverage_title', time:'pick_time'
-};
+const SPEAK = { login:'login_title', personalize:'personalize_title', scan:'scan_title', found:'plan_found', clinics:'find_clinics', cover:'coverage_title', time:'pick_time' };
 
-let lang = 'en';
+let lang='en';
+let profile='healthy';
 
 function t(k){ return (T[lang] && T[lang][k]) || T.en[k] || k; }
-
 function localize(){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    el.textContent = t(el.getAttribute('data-i18n'));
-  });
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.getAttribute('data-i18n')); });
   document.getElementById('wrap').setAttribute('dir', RTL[lang] ? 'rtl' : 'ltr');
 }
 
-/* ---------------- navigation ---------------- */
-const order = ['lang','scan','found','clinics','cover','time','done'];
 function go(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  const el = document.getElementById('s-'+id);
-  el.classList.add('active'); el.scrollTop = 0;
+  const el=document.getElementById('s-'+id); el.classList.add('active'); el.scrollTop=0;
   stopSpeak();
 }
-function pick(l){ lang=l; localize(); go('scan'); }
-function restart(){ lang='en'; localize(); go('lang'); resetScan(); }
+function pick(l){ lang=l; localize(); go('login'); }
+function restart(){ lang='en'; profile='healthy'; applyProfile(); localize(); go('lang'); resetScan(); }
 
-/* ---------------- scan ---------------- */
+function choose(p){ profile=p; applyProfile(); go('scan'); }
+function applyProfile(){
+  document.getElementById('wrap').classList.toggle('large', profile==='older');
+  const banKey={disability:'ban_disability',older:'ban_older',parent:'ban_parent',chronic:'ban_chronic',pregnant:'ban_pregnant',tourist:'ban_tourist'}[profile];
+  const ban=document.getElementById('profileBanner');
+  if(banKey){ ban.style.display='flex'; const sp=ban.querySelector('span'); sp.setAttribute('data-i18n',banKey); sp.textContent=t(banKey); }
+  else { ban.style.display='none'; }
+  document.querySelectorAll('.ptag').forEach(el=>el.style.display='none');
+  const show={disability:['wheelchair','sign','priority'],parent:['pediatric'],pregnant:['maternity'],older:['priority']}[profile]||[];
+  show.forEach(c=>document.querySelectorAll('.ptag.'+c).forEach(el=>el.style.display='inline-flex'));
+  document.getElementById('transportCard').style.display=(profile==='disability')?'flex':'none';
+  document.getElementById('reminderRow').style.display=(profile==='chronic')?'flex':'none';
+}
+
 function resetScan(){
-  const f=document.getElementById('scanframe'); f.classList.remove('scanning');
+  document.getElementById('scanframe').classList.remove('scanning');
   document.getElementById('scanstatus').classList.remove('show');
   document.getElementById('scanbtn').style.display='';
   document.getElementById('scanhint').style.display='';
 }
 function doScan(){
-  const f=document.getElementById('scanframe');
-  f.classList.add('scanning');
+  document.getElementById('scanframe').classList.add('scanning');
   document.getElementById('scanstatus').classList.add('show');
   document.getElementById('scanbtn').style.display='none';
   document.getElementById('scanhint').style.display='none';
   setTimeout(()=>{ resetScan(); go('found'); }, 2100);
 }
 
-/* ---------------- clinic selection ---------------- */
-function chooseClinic(name, spec, meta){
-  document.getElementById('cov-name').textContent = name;
-  document.getElementById('cov-meta').textContent = meta;
-  document.getElementById('time-clinic').textContent = name;
-  document.getElementById('done-clinic').textContent = name;
+function chooseClinic(name, meta){
+  document.getElementById('cov-name').textContent=name;
+  document.getElementById('cov-meta').textContent=meta;
+  document.getElementById('time-clinic').textContent=name;
+  document.getElementById('done-clinic').textContent=name;
   go('cover');
 }
 function selDay(el){ el.parentElement.querySelectorAll('.daytab').forEach(d=>d.classList.remove('sel')); el.classList.add('sel'); }
 function selSlot(el,val){ el.parentElement.querySelectorAll('.slot').forEach(s=>s.classList.remove('sel')); el.classList.add('sel'); document.getElementById('done-time').textContent=val; }
 
-/* ---------------- language sheet ---------------- */
 function openSheet(){ document.getElementById('scrim').classList.add('show'); document.getElementById('sheet').classList.add('show'); }
 function closeSheet(){ document.getElementById('scrim').classList.remove('show'); document.getElementById('sheet').classList.remove('show'); }
-function pickSheet(l){ lang=l; localize(); closeSheet(); }
+function pickSheet(l){ lang=l; applyProfile(); localize(); closeSheet(); }
 
-/* ---------------- voice (voice-first) ---------------- */
 let speaking=false;
 function listen(btn, screen){
-  const key = SPEAK[screen];
-  const text = t(key);
+  const text=t(SPEAK[screen]);
   try{
     if(!('speechSynthesis' in window)) throw 'no-tts';
     window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = LOCALE[lang] || 'en-US';
-    u.rate = .95;
-    const voices = window.speechSynthesis.getVoices();
-    const v = voices.find(v=>v.lang && v.lang.toLowerCase().startsWith((LOCALE[lang]||'en').slice(0,2)));
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang=LOCALE[lang]||'en-US'; u.rate=.95;
+    const voices=window.speechSynthesis.getVoices();
+    const v=voices.find(v=>v.lang && v.lang.toLowerCase().startsWith((LOCALE[lang]||'en').slice(0,2)));
     if(v) u.voice=v;
     btn.classList.add('on');
-    u.onend = ()=>btn.classList.remove('on');
-    u.onerror = ()=>btn.classList.remove('on');
+    u.onend=()=>btn.classList.remove('on'); u.onerror=()=>btn.classList.remove('on');
     window.speechSynthesis.speak(u);
-  }catch(e){
-    // graceful: pulse the button if TTS unavailable
-    btn.classList.add('on'); setTimeout(()=>btn.classList.remove('on'), 700);
-  }
+  }catch(e){ btn.classList.add('on'); setTimeout(()=>btn.classList.remove('on'),700); }
 }
 function stopSpeak(){ try{ window.speechSynthesis && window.speechSynthesis.cancel(); }catch(e){} document.querySelectorAll('.iconbtn.speak.on').forEach(b=>b.classList.remove('on')); }
-// warm up voices list
-if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = ()=>window.speechSynthesis.getVoices(); }
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices(); }
 
-/* ---------------- fit to viewport ---------------- */
 function fit(){
   const p=document.getElementById('phone');
   const s=Math.min(1,(window.innerHeight-40)/844,(window.innerWidth-24)/390);
-  p.style.setProperty('--scale', s);
-  p.style.transform = 'scale('+s+')';
+  p.style.transform='scale('+s+')';
 }
-window.addEventListener('resize', fit);
-fit();
-localize();
-
-/* live clock */
-function tick(){ const d=new Date(); let h=d.getHours(), m=d.getMinutes(); const am=h<12; h=h%12||12; document.getElementById('clock').textContent = h+':'+String(m).padStart(2,'0'); }
-tick(); setInterval(tick, 10000);
+window.addEventListener('resize', fit); fit();
+applyProfile(); localize();
+function tick(){ const d=new Date(); let h=d.getHours(), m=d.getMinutes(); h=h%12||12; document.getElementById('clock').textContent=h+':'+String(m).padStart(2,'0'); }
+tick(); setInterval(tick,10000);
 </script>
 </body>
 </html>
